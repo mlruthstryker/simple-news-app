@@ -1,0 +1,1 @@
+mlcp.bat import -host localhost -port 8011 -username admin -password admin -input_file_path C:\\mls-projects\\news\\docs_to_load -mode local -input_file_type documents -output_collections "http://www.bbc.co.uk/news/content" -output_uri_replace "C:/mls-projects/news/docs_to_load,'content/news'"

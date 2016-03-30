@@ -1,0 +1,20 @@
+<export><workspace name="Queries Workspace"><query name="Query 1" focus="true" active="true" content-source="as:4291094692515982123:" mode="xquery">cts:search(fn:doc(), "earthquake")[1 to 10]</query><query name="Query 2" focus="false" active="true" content-source="as:4291094692515982123:" mode="xquery">declare namespace ns = "http://www.w3.org/1999/xhtml";
+
+for $doc in cts:search(fn:doc(), "earthquake")[1 to 10]
+return $doc//ns:title/text()</query><query name="Query 3" focus="false" active="true" content-source="as:4291094692515982123:" mode="xquery">declare namespace ns = "http://www.w3.org/1999/xhtml";
+
+for $title in cts:search(fn:doc()//ns:title, "earthquake")[1 to 10]
+return $title/text()</query><query name="Query 4" focus="false" active="true" content-source="as:4291094692515982123:" mode="javascript">fn.subsequence(cts.search('earthquake'), 1, 10);</query><query name="Query 5" focus="false" active="true" content-source="as:4291094692515982123:" mode="javascript">var namespace = 'http://www.w3.org/1999/xhtml';
+var documents = cts.search('earthquake');
+var results = [];
+for (var document of documents) {
+  var node = document.root;
+  var title = node.xpath("//ns:title/text()", {ns:namespace}).toString().replace(/\r?\n|\r/g, " ");
+  results.push(title);
+}
+results;</query><query name="Query 6" focus="false" active="true" content-source="as:4291094692515982123:" mode="xquery">import module namespace search = "http://marklogic.com/appservices/search"
+    at "/MarkLogic/appservices/search/search.xqy";
+
+search:search("earthquake")</query><query name="Query 7" focus="false" active="true" content-source="as:4291094692515982123:" mode="javascript">var search = require('/MarkLogic/appservices/search/search.xqy');
+
+search.search('earthquake');</query></workspace></export>
